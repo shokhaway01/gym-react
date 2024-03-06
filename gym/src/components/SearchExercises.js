@@ -57,7 +57,8 @@ const SearchExercises = () => {
                             xs:'14px'
                         },
                         height:'56px',
-                        position:"absolute"
+                        position:"absolute",
+                        right:'0'
                     }
                 }
             >
