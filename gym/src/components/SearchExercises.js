@@ -3,8 +3,12 @@ import React from 'react'
 import { Box,Button,Stack,TextField,Typography } from "@mui/material"
 
 
-// 
+
+
 const SearchExercises = () => {
+
+const [search,setSearch] = useState('');
+
   return (
     <Stack
         alignItems={'center'}
@@ -39,8 +43,8 @@ const SearchExercises = () => {
                 }
                 }
                 height='76px'
-                value={''}
-                onChange={(e)=>{}}
+                value={search}
+                onChange={(e)=>{setSearch(e.target.value.toLower)}}
                 placeholder="search exercises"
                 type="text"
             />
