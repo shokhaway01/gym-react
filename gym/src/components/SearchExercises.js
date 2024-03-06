@@ -2,21 +2,42 @@ import { useEffect, useState } from "react"
 import React from 'react'
 import { Box,Button,Stack,TextField,Typography } from "@mui/material"
 import { exerciseOptions,fetchData } from "../utils/fetchData"
-
-
+import HorizontalScrollBar from "./HorizontalScrollBar"
 
 const SearchExercises = () => {
 
-const [search,setSearch] = useState('');
+    const [search,setSearch] = useState('');
+    const [exercises, setExersices] = useState([])
+    cosnt [bodyParts, setBodyParts] = useState([])
+
+    useEffect(() => {
+      const fetchExereciseData = async () => {
+        const bodyPartsData = await fetchData('https://exercisedb.p.rapidapi.com/exercises/bodyPartList', exerciseOptions);
+
+        setBodyParts(['all', ...bodyPartsData])
+      }
+    }, [])
+    
+
+
+
 
 const handleSearch = async () => {
     if(search){
         const exercisesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises/', exerciseOptions);
         console.log(exercisesData)
         
-        const searchedExercises = exercisesData.filter(
-            () => exerciseOptions.name.toLowerCase().includes(search)
-        )
+        const searchedExercises = exercisesData.filter
+        ((exercise) => exerciseOptions.name.toLowerCase().includes(search)
+                ||exerciseOptions.target.toLowerCase().includes(search)
+                ||exerciseOptions.equipment.toLowerCase().includes(search)
+                ||exerciseOptions.bodyPart.toLowerCase().includes(search)
+                
+            }
+        );
+
+        setSearch('');
+        setExersices(searchedExercises)
     }else{
         console.log("Error is ocured")
     }
@@ -85,6 +106,19 @@ const handleSearch = async () => {
                 Button
             </Button>
         </Box>
+
+        <Box
+            sx={
+                {
+                    position:'relative',
+                    width:'100%',
+                    p:'20px'
+                }
+            }
+        >
+            <HorizontalScrollbar data={bodyPart}/>
+        </Box>
+
     </Stack>
   )
 }
