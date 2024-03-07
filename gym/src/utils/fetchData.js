@@ -1,4 +1,3 @@
-// Именно тут мы будем грузить данные с рапид апи!
 export const exerciseOptions = {
   method: 'GET',
   headers: {

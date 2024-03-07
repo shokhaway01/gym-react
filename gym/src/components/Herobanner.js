@@ -62,6 +62,7 @@ const Herobanner = () => {
             color="#ff2625"
             fontSize={'200px'}
             letterSpacing={'4px'}
+            fontFamily={''}
             sx={
                 {
                     opacity:0.1,
@@ -72,7 +73,7 @@ const Herobanner = () => {
                 }
             }
         >
-            Exercises
+            Shohjaxon
         </Typography>
         <img src={HerobannerImage} alt='banner' className='hero-banner-img'/>
 
