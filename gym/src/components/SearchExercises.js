@@ -8,7 +8,7 @@ const SearchExercises = () => {
 
     const [search,setSearch] = useState('');
     const [exercises, setExersices] = useState([])
-    cosnt [bodyParts, setBodyParts] = useState([])
+    const [bodyParts, setBodyParts] = useState([])
 
     useEffect(() => {
       const fetchExereciseData = async () => {
@@ -27,13 +27,11 @@ const handleSearch = async () => {
         const exercisesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises/', exerciseOptions);
         console.log(exercisesData)
         
-        const searchedExercises = exercisesData.filter
-        ((exercise) => exerciseOptions.name.toLowerCase().includes(search)
-                ||exerciseOptions.target.toLowerCase().includes(search)
-                ||exerciseOptions.equipment.toLowerCase().includes(search)
-                ||exerciseOptions.bodyPart.toLowerCase().includes(search)
-                
-            }
+        const searchedExercises = exercisesData.filter(
+                (exercise) => exercise.name.toLowerCase().includes(search)
+                || exercise.target.toLowerCase().includes(search)
+                || exercise.equipment.toLowerCase().includes(search)
+                || exercise.bodyPart.toLowerCase().includes(search)        
         );
 
         setSearch('');
@@ -116,7 +114,7 @@ const handleSearch = async () => {
                 }
             }
         >
-            <HorizontalScrollbar data={bodyPart}/>
+            <HorizontalScrollBar data={bodyParts}/>
         </Box>
 
     </Stack>
