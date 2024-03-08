@@ -1,3 +1,3 @@
 # React Fitness Application
 
-![React Fitness Application](url~)
+![React Fitness Application](https://gym-shokhaway.netlify.app/)
