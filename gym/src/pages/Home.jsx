@@ -23,6 +23,8 @@ const Home = () => {
       bodyPart={bodyPart}
       setBodyPart={setBodyPart}
       />
+
+      {/* {bodyPart} */}
     </Box>
   )
 }

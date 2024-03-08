@@ -4,6 +4,8 @@ import { Stack,Typography } from '@mui/material'
 import Icon from '../assets/icons/gym.png'
 
 const BodyPart = ({item,setBodyPart,bodyPart}) => {
+    // console.log(item)
+    console.log(bodyPart)
     return (
         <Stack
             type="button"
@@ -13,7 +15,7 @@ const BodyPart = ({item,setBodyPart,bodyPart}) => {
             sx={
                 bodyPart === item ? {
                     borderTop:'4px solid #ff2625',
-                    backgroundColor:"#000"
+                    backgroundColor:"#"
                 } : {}
             }>
             <img src={Icon} alt='dumbbel' styles={
